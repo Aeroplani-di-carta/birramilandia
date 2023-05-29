@@ -1,0 +1,160 @@
+<script setup>
+import { loadFull } from "tsparticles";
+import { ParticlesComponent } from "vue3-particles";
+const particlesInit = async (engine) => {
+  await loadFull(engine);
+};
+
+// const particlesLoaded = async (container) => {
+//   console.log("Particles container loaded", container);
+// };
+
+const options = ref({
+  // background: {
+  //   color: {
+  //     value: '#ACBD92'
+  //   }
+  // },
+  fpsLimit: 120,
+  interactivity: {
+    // events: {
+    //   onClick: {
+    //     enable: true,
+    //     mode: 'push'
+    //   },
+    //   onHover: {
+    //     enable: true,
+    //     mode: 'repulse'
+    //   },
+    //   resize: true
+    // },
+    modes: {
+      bubble: {
+        distance: 400,
+        duration: 2,
+        opacity: 0.8,
+        size: 60,
+      },
+      push: {
+        quantity: 8,
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4,
+      },
+    },
+  },
+  particles: {
+    color: {
+      value: "#ffffff",
+    },
+    links: {
+      color: "#ffffff",
+      distance: 150,
+      enable: false,
+      opacity: 0.75,
+      width: 1,
+    },
+    collisions: {
+      enable: false,
+    },
+    move: {
+      direction: "top",
+      enable: true,
+      // outMode: 'bounce',
+      // angle: { offset: 45, value: 5 },
+      random: false,
+      speed: 6,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 200,
+      },
+      value: 80,
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: "image",
+      image: {
+        src: "/img/drip.png",
+      },
+    },
+    size: {
+      random: true,
+      value: 15,
+    },
+    // tilt: {
+    //   direction: "random",
+    //   enable: true,
+    //   move: true,
+    //   value: {
+    //     min: 0,
+    //     max: 5,
+    //   },
+    //   animation: {
+    //     enable: true,
+    //     speed: 60,
+    //   },
+    // },
+    // roll: {
+    //   darken: {
+    //     enable: true,
+    //     value: 25,
+    //   },
+    //   enable: true,
+    //   speed: {
+    //     min: 15,
+    //     max: 25,
+    //   },
+    // },
+    wobble: {
+      distance: 5,
+      enable: true,
+      move: true,
+      speed: {
+        min: 5,
+        max: 15,
+      },
+    },
+  },
+  detectRetina: true,
+});
+// const options = ref({
+
+//   particles: {
+//     move: {
+//       direction: "bottom",
+//       enable: true,
+//       random: false,
+//       straight: false,
+//     },
+//     opacity: {
+//       value: { min: 0.1, max: 0.5 },
+//     },
+//     size: {
+//       value: { min: 1, max: 10 },
+//     },
+//     wobble: {
+//       distance: 20,
+//       enable: true,
+//       speed: {
+//         min: -5,
+//         max: 5,
+//       },
+//     },
+//   },
+// })
+</script>
+<template>
+  <ClientOnly>
+    <ParticlesComponent
+      id="tsparticles"
+      :options="options"
+      :particles-init="particlesInit"
+    />
+  </ClientOnly>
+</template>
