@@ -7,6 +7,6 @@
       <h1 class="font-bold text-red-700 text-5xl mt-12">BIRRAMILANDIA</h1>
       <h2 class="font-bold text-red-700 text-3xl">Settembre 2023</h2>
     </div>
-    <ContactForm />
+    <!-- <ContactForm /> -->
   </div>
 </template>
